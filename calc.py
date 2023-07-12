@@ -17,24 +17,47 @@ def button_delete():
 def button_addition():
   first_num = e.get()
   global f_num
+  global operator
+  operator = "addition"
+  f_num = int(first_num)
+  print(f_num)
+  e.delete(0, END)
+  
+def button_minus():
+  first_num = e.get()
+  global f_num
+  global operator
+  operator = "subtraction"
+  f_num = int(first_num)
+  e.delete(0, END)
+
+def button_mult():
+  first_num = e.get()
+  global f_num
+  global operator
+  operator = "multiplication"
+  f_num = int(first_num)
+  e.delete(0, END)
+
+def button_div():
+  first_num = e.get()
+  global f_num
+  global operator
+  operator = "division"
   f_num = int(first_num)
   e.delete(0, END)
 
 def button_equation():
   second_numb = e.get()
   e.delete(0, END)
-  e.insert(0, f_num + int(second_numb))
-  f_num = 0
-
-
-def button_minus():
-  pass
-
-def button_mult():
-  pass
-
-def button_div():
-  pass
+  if operator == "addition":
+    e.insert(0, f_num + int(second_numb))
+  if operator == "subtraction":
+    e.insert(0, f_num - int(second_numb))
+  if operator == "multiplication":
+    e.insert(0, f_num * int(second_numb))
+  if operator == "division":
+    e.insert(0, f_num / int(second_numb))
 
 
 button_1= Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
